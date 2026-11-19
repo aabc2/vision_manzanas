@@ -1,0 +1,77 @@
+{
+  "nombre": "exp32_otsu_post_apertura5",
+  "descripcion": "Mejor Otsu con postprocesado apertura5",
+  "conjunto": "test",
+  "fecha": "2026-11-19T03:31:28",
+  "preprocesado": "bilateral(d=9, sigma_color=75, sigma_espacio=75)",
+  "modelo": "otsu_combinado",
+  "parametros_modelo": {
+    "canales": [
+      "Cr",
+      "b"
+    ],
+    "operacion": "and",
+    "variante": "iterado"
+  },
+  "postprocesado": "apertura(k=5)",
+  "escala": 1.0,
+  "config": {
+    "nombre": "exp32_otsu_post_apertura5",
+    "descripcion": "Mejor Otsu con postprocesado apertura5",
+    "preprocesado": [
+      [
+        "bilateral",
+        {
+          "d": 9,
+          "sigma_color": 75,
+          "sigma_espacio": 75
+        }
+      ]
+    ],
+    "modelo": [
+      "otsu_combinado",
+      {
+        "canales": [
+          "Cr",
+          "b"
+        ],
+        "operacion": "and",
+        "variante": "iterado"
+      }
+    ],
+    "postprocesado": [
+      [
+        "apertura",
+        {
+          "k": 5
+        }
+      ]
+    ]
+  },
+  "resumen": {
+    "n_imagenes": 30,
+    "media_exactitud": 0.969806495949074,
+    "std_exactitud": 0.012962745834227565,
+    "media_precision": 0.6255910285383801,
+    "std_precision": 0.3134156354455132,
+    "media_recall": 0.5632622095327414,
+    "std_recall": 0.11955815859311399,
+    "media_especificidad": 0.9905967271892765,
+    "std_especificidad": 0.006995955545086275,
+    "media_fpr": 0.009403272810723427,
+    "std_fpr": 0.006995955545086274,
+    "media_iou": 0.35739535925938787,
+    "std_iou": 0.14305198730195476,
+    "media_dice": 0.5086057722114387,
+    "std_dice": 0.17125162081699769,
+    "global_exactitud": 0.9698064959490741,
+    "global_precision": 0.6949307106003468,
+    "global_recall": 0.4965570166341726,
+    "global_especificidad": 0.9904783022554493,
+    "global_fpr": 0.009521697744550726,
+    "global_iou": 0.4076873846118915,
+    "global_dice": 0.5792300038609688,
+    "tiempo_medio_s": 0.016630000000000002,
+    "tiempo_entrenamiento_s": 0.0
+  }
+}

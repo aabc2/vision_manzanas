@@ -1,0 +1,70 @@
+{
+  "nombre": "exp32_otsu_post_sin",
+  "descripcion": "Mejor Otsu con postprocesado sin",
+  "conjunto": "test",
+  "fecha": "2026-11-19T03:31:19",
+  "preprocesado": "bilateral(d=9, sigma_color=75, sigma_espacio=75)",
+  "modelo": "otsu_combinado",
+  "parametros_modelo": {
+    "canales": [
+      "Cr",
+      "b"
+    ],
+    "operacion": "and",
+    "variante": "iterado"
+  },
+  "postprocesado": "sin postprocesado",
+  "escala": 1.0,
+  "config": {
+    "nombre": "exp32_otsu_post_sin",
+    "descripcion": "Mejor Otsu con postprocesado sin",
+    "preprocesado": [
+      [
+        "bilateral",
+        {
+          "d": 9,
+          "sigma_color": 75,
+          "sigma_espacio": 75
+        }
+      ]
+    ],
+    "modelo": [
+      "otsu_combinado",
+      {
+        "canales": [
+          "Cr",
+          "b"
+        ],
+        "operacion": "and",
+        "variante": "iterado"
+      }
+    ],
+    "postprocesado": []
+  },
+  "resumen": {
+    "n_imagenes": 30,
+    "media_exactitud": 0.968307472511574,
+    "std_exactitud": 0.012268194421450003,
+    "media_precision": 0.6020429079705144,
+    "std_precision": 0.31715666207364446,
+    "media_recall": 0.576703899405769,
+    "std_recall": 0.12012618494579604,
+    "media_especificidad": 0.9885222755102561,
+    "std_especificidad": 0.008539487650686062,
+    "media_fpr": 0.011477724489743898,
+    "std_fpr": 0.008539487650686059,
+    "media_iou": 0.35186020084583036,
+    "std_iou": 0.15247750486531395,
+    "media_dice": 0.4997355914708361,
+    "std_dice": 0.18518166412190273,
+    "global_exactitud": 0.9683074725115741,
+    "global_precision": 0.6565967177801588,
+    "global_recall": 0.5089263491931804,
+    "global_especificidad": 0.9883735011436395,
+    "global_fpr": 0.011626498856360442,
+    "global_iou": 0.4019412585350671,
+    "global_dice": 0.5734067045791467,
+    "tiempo_medio_s": 0.016196666666666668,
+    "tiempo_entrenamiento_s": 0.0
+  }
+}
