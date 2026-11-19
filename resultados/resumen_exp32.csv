@@ -1,5 +1,0 @@
-experimento,modelo,preprocesado,postprocesado,escala,n_imagenes,dice_media,dice_std,iou_media,iou_std,precision_media,precision_std,recall_media,recall_std,exactitud_media,exactitud_std,especificidad_media,especificidad_std,tiempo_s_imagen
-exp32_otsu_post_apertura5_cierre5_area80,otsu_combinado,"bilateral(d=9, sigma_color=75, sigma_espacio=75)",apertura(k=5) + cierre(k=5) + filtrar_area(minima=80),1.0,70,0.5332,0.1713,0.3805,0.1454,0.6702,0.3019,0.5612,0.1285,0.9708,0.0140,0.9921,0.0060,0.018
-exp32_otsu_post_apertura5_area80,otsu_combinado,"bilateral(d=9, sigma_color=75, sigma_espacio=75)",apertura(k=5) + filtrar_area(minima=80),1.0,70,0.5321,0.1690,0.3789,0.1434,0.6728,0.3016,0.5566,0.1281,0.9708,0.0141,0.9924,0.0058,0.017
-exp32_otsu_post_apertura5,otsu_combinado,"bilateral(d=9, sigma_color=75, sigma_espacio=75)",apertura(k=5),1.0,70,0.5269,0.1817,0.3764,0.1522,0.6572,0.3070,0.5649,0.1254,0.9701,0.0135,0.9912,0.0066,0.014
-exp32_otsu_post_sin,otsu_combinado,"bilateral(d=9, sigma_color=75, sigma_espacio=75)",sin postprocesado,1.0,70,0.5212,0.1945,0.3735,0.1604,0.6347,0.3092,0.5792,0.1250,0.9688,0.0128,0.9892,0.0082,0.014

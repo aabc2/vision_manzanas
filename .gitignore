@@ -7,3 +7,5 @@ __pycache__/
 resultados/*/mascaras/
 resultados/*/figuras/
 resultados/*__train/
+resultados/*
+!resultados/.gitkeep
