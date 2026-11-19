@@ -16,8 +16,8 @@ Cuando las tres fases estén decididas, la evaluación final es sobre TEST:
 
 from src.preprocesado.variantes import PREPROCESADOS
 
-MODELO = ("otsu_combinado", {"canales": ("Cr", "b"), "operacion": "and", "variante": "multi"})
-PREPROCESADO = PREPROCESADOS["P1_gaussiano"]
+MODELO = ("otsu_combinado", {"canales": ("Cr", "b"), "operacion": "and", "variante": "iterado"})
+PREPROCESADO = PREPROCESADOS["P2_bilateral"]
 
 POSTPROCESADOS = {
     "sin": [],

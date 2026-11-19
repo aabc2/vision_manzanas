@@ -1,0 +1,67 @@
+{
+  "nombre": "exp31_otsu_iterado_Cr_and_b_P1_gaussiano",
+  "descripcion": "Otsu iterado_Cr_and_b con preprocesado P1_gaussiano",
+  "conjunto": "train",
+  "fecha": "2026-11-19T03:21:56",
+  "preprocesado": "gaussiano(k=5)",
+  "modelo": "otsu_combinado",
+  "parametros_modelo": {
+    "canales": [
+      "Cr",
+      "b"
+    ],
+    "operacion": "and",
+    "variante": "iterado"
+  },
+  "postprocesado": "sin postprocesado",
+  "escala": 1.0,
+  "config": {
+    "nombre": "exp31_otsu_iterado_Cr_and_b_P1_gaussiano",
+    "descripcion": "Otsu iterado_Cr_and_b con preprocesado P1_gaussiano",
+    "preprocesado": [
+      [
+        "gaussiano",
+        {
+          "k": 5
+        }
+      ]
+    ],
+    "modelo": [
+      "otsu_combinado",
+      {
+        "canales": [
+          "Cr",
+          "b"
+        ],
+        "operacion": "and",
+        "variante": "iterado"
+      }
+    ]
+  },
+  "resumen": {
+    "n_imagenes": 70,
+    "media_exactitud": 0.968024011036706,
+    "std_exactitud": 0.012819988733255329,
+    "media_precision": 0.6297406822903229,
+    "std_precision": 0.30761322881013364,
+    "media_recall": 0.5681079805230809,
+    "std_recall": 0.12714564324821445,
+    "media_especificidad": 0.9890392703424595,
+    "std_especificidad": 0.008278855605687117,
+    "media_fpr": 0.01096072965754026,
+    "std_fpr": 0.008278855605687108,
+    "media_iou": 0.36315360660673235,
+    "std_iou": 0.15526737936638246,
+    "media_dice": 0.5111211355894979,
+    "std_dice": 0.19099889465940886,
+    "global_exactitud": 0.9680240110367063,
+    "global_precision": 0.6698460380493366,
+    "global_recall": 0.5022433125152198,
+    "global_especificidad": 0.9889033658179945,
+    "global_fpr": 0.011096634182005512,
+    "global_iou": 0.40258504721345756,
+    "global_dice": 0.5740615130801243,
+    "tiempo_medio_s": 0.010975714285714285,
+    "tiempo_entrenamiento_s": 0.0
+  }
+}

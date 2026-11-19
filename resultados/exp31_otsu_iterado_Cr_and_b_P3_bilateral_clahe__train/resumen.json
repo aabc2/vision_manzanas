@@ -1,0 +1,76 @@
+{
+  "nombre": "exp31_otsu_iterado_Cr_and_b_P3_bilateral_clahe",
+  "descripcion": "Otsu iterado_Cr_and_b con preprocesado P3_bilateral_clahe",
+  "conjunto": "train",
+  "fecha": "2026-11-19T03:22:01",
+  "preprocesado": "bilateral(d=9, sigma_color=75, sigma_espacio=75) + clahe(clip=2.0, rejilla=8)",
+  "modelo": "otsu_combinado",
+  "parametros_modelo": {
+    "canales": [
+      "Cr",
+      "b"
+    ],
+    "operacion": "and",
+    "variante": "iterado"
+  },
+  "postprocesado": "sin postprocesado",
+  "escala": 1.0,
+  "config": {
+    "nombre": "exp31_otsu_iterado_Cr_and_b_P3_bilateral_clahe",
+    "descripcion": "Otsu iterado_Cr_and_b con preprocesado P3_bilateral_clahe",
+    "preprocesado": [
+      [
+        "bilateral",
+        {
+          "d": 9,
+          "sigma_color": 75,
+          "sigma_espacio": 75
+        }
+      ],
+      [
+        "clahe",
+        {
+          "clip": 2.0,
+          "rejilla": 8
+        }
+      ]
+    ],
+    "modelo": [
+      "otsu_combinado",
+      {
+        "canales": [
+          "Cr",
+          "b"
+        ],
+        "operacion": "and",
+        "variante": "iterado"
+      }
+    ]
+  },
+  "resumen": {
+    "n_imagenes": 70,
+    "media_exactitud": 0.9677280195932539,
+    "std_exactitud": 0.011945386240841698,
+    "media_precision": 0.6209084621676291,
+    "std_precision": 0.32103938808870863,
+    "media_recall": 0.5424420657136189,
+    "std_recall": 0.09972550214878369,
+    "media_especificidad": 0.9887099406512403,
+    "std_especificidad": 0.008255407764011954,
+    "media_fpr": 0.011290059348759892,
+    "std_fpr": 0.008255407764011949,
+    "media_iou": 0.35550184072499474,
+    "std_iou": 0.16625883410217654,
+    "media_dice": 0.49909632082507976,
+    "std_dice": 0.20790052586528437,
+    "global_exactitud": 0.9677280195932539,
+    "global_precision": 0.6633586157157271,
+    "global_recall": 0.5031238009351893,
+    "global_especificidad": 0.9885546368082595,
+    "global_fpr": 0.01144536319174048,
+    "global_iou": 0.40079154586876203,
+    "global_dice": 0.5722358148873516,
+    "tiempo_medio_s": 0.016225714285714288,
+    "tiempo_entrenamiento_s": 0.0
+  }
+}
