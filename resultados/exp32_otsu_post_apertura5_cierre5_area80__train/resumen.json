@@ -1,0 +1,89 @@
+{
+  "nombre": "exp32_otsu_post_apertura5_cierre5_area80",
+  "descripcion": "Mejor Otsu con postprocesado apertura5_cierre5_area80",
+  "conjunto": "train",
+  "fecha": "2026-11-19T03:24:42",
+  "preprocesado": "bilateral(d=9, sigma_color=75, sigma_espacio=75)",
+  "modelo": "otsu_combinado",
+  "parametros_modelo": {
+    "canales": [
+      "Cr",
+      "b"
+    ],
+    "operacion": "and",
+    "variante": "iterado"
+  },
+  "postprocesado": "apertura(k=5) + cierre(k=5) + filtrar_area(minima=80)",
+  "escala": 1.0,
+  "config": {
+    "nombre": "exp32_otsu_post_apertura5_cierre5_area80",
+    "descripcion": "Mejor Otsu con postprocesado apertura5_cierre5_area80",
+    "preprocesado": [
+      [
+        "bilateral",
+        {
+          "d": 9,
+          "sigma_color": 75,
+          "sigma_espacio": 75
+        }
+      ]
+    ],
+    "modelo": [
+      "otsu_combinado",
+      {
+        "canales": [
+          "Cr",
+          "b"
+        ],
+        "operacion": "and",
+        "variante": "iterado"
+      }
+    ],
+    "postprocesado": [
+      [
+        "apertura",
+        {
+          "k": 5
+        }
+      ],
+      [
+        "cierre",
+        {
+          "k": 5
+        }
+      ],
+      [
+        "filtrar_area",
+        {
+          "minima": 80
+        }
+      ]
+    ]
+  },
+  "resumen": {
+    "n_imagenes": 70,
+    "media_exactitud": 0.9707821025545635,
+    "std_exactitud": 0.013973307152630853,
+    "media_precision": 0.6702269193954252,
+    "std_precision": 0.301945849616327,
+    "media_recall": 0.5612371011560653,
+    "std_recall": 0.1284724726548331,
+    "media_especificidad": 0.9921354646846938,
+    "std_especificidad": 0.005988094474987613,
+    "media_fpr": 0.007864535315306067,
+    "std_fpr": 0.005988094474987608,
+    "media_iou": 0.3804554390203728,
+    "std_iou": 0.14544753755099707,
+    "media_dice": 0.5332189439778335,
+    "std_dice": 0.17133930567135605,
+    "global_exactitud": 0.9707821025545635,
+    "global_precision": 0.7367342002819754,
+    "global_recall": 0.4963501460736431,
+    "global_especificidad": 0.9920492636249761,
+    "global_fpr": 0.007950736375023812,
+    "global_iou": 0.42157655797076987,
+    "global_dice": 0.5931112969006038,
+    "tiempo_medio_s": 0.018008571428571433,
+    "tiempo_entrenamiento_s": 0.0
+  }
+}

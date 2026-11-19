@@ -1,0 +1,77 @@
+{
+  "nombre": "exp32_otsu_post_apertura5",
+  "descripcion": "Mejor Otsu con postprocesado apertura5",
+  "conjunto": "train",
+  "fecha": "2026-11-19T03:24:36",
+  "preprocesado": "bilateral(d=9, sigma_color=75, sigma_espacio=75)",
+  "modelo": "otsu_combinado",
+  "parametros_modelo": {
+    "canales": [
+      "Cr",
+      "b"
+    ],
+    "operacion": "and",
+    "variante": "iterado"
+  },
+  "postprocesado": "apertura(k=5)",
+  "escala": 1.0,
+  "config": {
+    "nombre": "exp32_otsu_post_apertura5",
+    "descripcion": "Mejor Otsu con postprocesado apertura5",
+    "preprocesado": [
+      [
+        "bilateral",
+        {
+          "d": 9,
+          "sigma_color": 75,
+          "sigma_espacio": 75
+        }
+      ]
+    ],
+    "modelo": [
+      "otsu_combinado",
+      {
+        "canales": [
+          "Cr",
+          "b"
+        ],
+        "operacion": "and",
+        "variante": "iterado"
+      }
+    ],
+    "postprocesado": [
+      [
+        "apertura",
+        {
+          "k": 5
+        }
+      ]
+    ]
+  },
+  "resumen": {
+    "n_imagenes": 70,
+    "media_exactitud": 0.9701056082589288,
+    "std_exactitud": 0.013517125192406214,
+    "media_precision": 0.6571890612545827,
+    "std_precision": 0.30703878522517847,
+    "media_recall": 0.5649056703760084,
+    "std_recall": 0.12540227930395184,
+    "media_especificidad": 0.991225687394232,
+    "std_especificidad": 0.006595795066139246,
+    "media_fpr": 0.008774312605768183,
+    "std_fpr": 0.006595795066139251,
+    "media_iou": 0.37637462617232115,
+    "std_iou": 0.15220355547660572,
+    "media_dice": 0.5268871958118083,
+    "std_dice": 0.18166268285287274,
+    "global_exactitud": 0.9701056082589286,
+    "global_precision": 0.7168136746060082,
+    "global_recall": 0.5012349238487713,
+    "global_especificidad": 0.9911234765334627,
+    "global_fpr": 0.008876523466537384,
+    "global_iou": 0.41838638348589324,
+    "global_dice": 0.5899469825107135,
+    "tiempo_medio_s": 0.013892857142857143,
+    "tiempo_entrenamiento_s": 0.0
+  }
+}
