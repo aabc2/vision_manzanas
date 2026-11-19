@@ -1,0 +1,11 @@
+variante,pasos,gris,H,S,V,a,b,Cr
+original,sin preprocesado,0.4022,0.7841,0.1915,0.6043,1.1608,1.3722,2.4818
+gaussiano 5,gaussiano(k=5),0.4552,0.8201,0.3068,0.6837,1.2220,1.4308,2.6043
+mediana 5,mediana(k=5),0.4607,0.8071,0.2561,0.6909,1.2037,1.4139,2.5507
+bilateral,"bilateral(d=9, sigma_color=75, sigma_espacio=75)",0.4275,0.8355,0.2622,0.6390,1.2494,1.4417,2.6555
+ecualizar,ecualizar,0.4034,0.7716,0.0888,0.5395,1.0555,1.3305,2.4901
+clahe 2.0,"clahe(clip=2.0, rejilla=8)",0.3132,0.7070,0.1807,0.4270,0.8950,1.2368,2.2762
+gamma 0.7,gamma(valor=0.7),0.3997,0.8032,0.7509,0.6476,1.1846,1.3486,2.6009
+estirar 1-99,"estirar(p_bajo=1, p_alto=99)",0.3990,0.7979,0.0734,0.5665,1.1600,1.3565,2.4176
+gaussiano + clahe,"gaussiano(k=5) + clahe(clip=2.0, rejilla=8)",0.3632,0.7467,0.1751,0.4935,0.9937,1.2845,2.4668
+bilateral + clahe,"bilateral(d=9, sigma_color=75, sigma_espacio=75) + clahe(clip=2.0, rejilla=8)",0.3467,0.7707,0.1619,0.4663,1.0069,1.3110,2.4893
