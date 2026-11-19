@@ -1,0 +1,60 @@
+{
+  "nombre": "exp30_otsu_clasico_Cr_and_b",
+  "descripcion": "Otsu clasico en Cr y b*, combinados con AND",
+  "conjunto": "train",
+  "fecha": "2026-11-19T03:13:05",
+  "preprocesado": "sin preprocesado",
+  "modelo": "otsu_combinado",
+  "parametros_modelo": {
+    "canales": [
+      "Cr",
+      "b"
+    ],
+    "operacion": "and",
+    "variante": "clasico"
+  },
+  "postprocesado": "sin postprocesado",
+  "escala": 1.0,
+  "config": {
+    "nombre": "exp30_otsu_clasico_Cr_and_b",
+    "descripcion": "Otsu clasico en Cr y b*, combinados con AND",
+    "preprocesado": [],
+    "modelo": [
+      "otsu_combinado",
+      {
+        "canales": [
+          "Cr",
+          "b"
+        ],
+        "operacion": "and",
+        "variante": "clasico"
+      }
+    ]
+  },
+  "resumen": {
+    "n_imagenes": 70,
+    "media_exactitud": 0.8031927083333332,
+    "std_exactitud": 0.06276788099335194,
+    "media_precision": 0.17930142068278757,
+    "std_precision": 0.1237360864589477,
+    "media_recall": 0.8564123958910332,
+    "std_recall": 0.09466099507794021,
+    "media_especificidad": 0.8046086736552667,
+    "std_especificidad": 0.06736394525035187,
+    "media_fpr": 0.19539132634473347,
+    "std_fpr": 0.06736394525035189,
+    "media_iou": 0.16657329865930157,
+    "std_iou": 0.10944127858555908,
+    "media_dice": 0.27001904844280966,
+    "std_dice": 0.16649791590167112,
+    "global_exactitud": 0.8031927083333333,
+    "global_precision": 0.1548950529761198,
+    "global_recall": 0.8050348618496688,
+    "global_especificidad": 0.8031101308951715,
+    "global_fpr": 0.19688986910482856,
+    "global_iou": 0.14929459047894975,
+    "global_dice": 0.259802128567809,
+    "tiempo_medio_s": 0.008241428571428575,
+    "tiempo_entrenamiento_s": 0.0
+  }
+}

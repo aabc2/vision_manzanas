@@ -1,0 +1,54 @@
+{
+  "nombre": "exp30_otsu_iterado_Cr",
+  "descripcion": "Otsu iterado sobre el canal Cr",
+  "conjunto": "train",
+  "fecha": "2026-11-19T03:12:55",
+  "preprocesado": "sin preprocesado",
+  "modelo": "otsu",
+  "parametros_modelo": {
+    "canal": "Cr",
+    "variante": "iterado",
+    "invertir": false
+  },
+  "postprocesado": "sin postprocesado",
+  "escala": 1.0,
+  "config": {
+    "nombre": "exp30_otsu_iterado_Cr",
+    "descripcion": "Otsu iterado sobre el canal Cr",
+    "preprocesado": [],
+    "modelo": [
+      "otsu",
+      {
+        "canal": "Cr",
+        "variante": "iterado",
+        "invertir": false
+      }
+    ]
+  },
+  "resumen": {
+    "n_imagenes": 70,
+    "media_exactitud": 0.9314284784226191,
+    "std_exactitud": 0.023938272467794005,
+    "media_precision": 0.3594078737725512,
+    "std_precision": 0.21678656523619538,
+    "media_recall": 0.6318343218305474,
+    "std_recall": 0.19885256208600996,
+    "media_especificidad": 0.9501866030607522,
+    "std_especificidad": 0.024971604700838188,
+    "media_fpr": 0.049813396939247745,
+    "std_fpr": 0.024971604700838184,
+    "media_iou": 0.25598239027255465,
+    "std_iou": 0.1430119388206547,
+    "media_dice": 0.38624092670801863,
+    "std_dice": 0.18993315137557246,
+    "global_exactitud": 0.931428478422619,
+    "global_precision": 0.31703664385090363,
+    "global_recall": 0.5183446528664468,
+    "global_especificidad": 0.9499456127211782,
+    "global_fpr": 0.0500543872788218,
+    "global_iou": 0.24489229136321808,
+    "global_dice": 0.3934353085198222,
+    "tiempo_medio_s": 0.005654285714285714,
+    "tiempo_entrenamiento_s": 0.0
+  }
+}

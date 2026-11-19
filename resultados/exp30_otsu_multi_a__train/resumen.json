@@ -1,0 +1,54 @@
+{
+  "nombre": "exp30_otsu_multi_a",
+  "descripcion": "Otsu multi sobre el canal a",
+  "conjunto": "train",
+  "fecha": "2026-11-19T03:12:45",
+  "preprocesado": "sin preprocesado",
+  "modelo": "otsu",
+  "parametros_modelo": {
+    "canal": "a",
+    "variante": "multi",
+    "invertir": false
+  },
+  "postprocesado": "sin postprocesado",
+  "escala": 1.0,
+  "config": {
+    "nombre": "exp30_otsu_multi_a",
+    "descripcion": "Otsu multi sobre el canal a",
+    "preprocesado": [],
+    "modelo": [
+      "otsu",
+      {
+        "canal": "a",
+        "variante": "multi",
+        "invertir": false
+      }
+    ]
+  },
+  "resumen": {
+    "n_imagenes": 70,
+    "media_exactitud": 0.7244117993551588,
+    "std_exactitud": 0.07271571510268472,
+    "media_precision": 0.057243423837419954,
+    "std_precision": 0.17354322835708016,
+    "media_recall": 0.3464766801058365,
+    "std_recall": 0.4071016994163162,
+    "media_especificidad": 0.7508965524207836,
+    "std_especificidad": 0.06703398915061294,
+    "media_fpr": 0.2491034475792164,
+    "std_fpr": 0.06703398915061293,
+    "media_iou": 0.04130479542308671,
+    "std_iou": 0.1125760246482057,
+    "media_dice": 0.06368038609639914,
+    "std_dice": 0.14537438876491376,
+    "global_exactitud": 0.7244117993551588,
+    "global_precision": 0.022438599601202983,
+    "global_recall": 0.12741285260183063,
+    "global_especificidad": 0.7511732191668538,
+    "global_fpr": 0.2488267808331462,
+    "global_iou": 0.01944974234472942,
+    "global_dice": 0.038157334367450245,
+    "tiempo_medio_s": 0.005582857142857143,
+    "tiempo_entrenamiento_s": 0.0
+  }
+}
