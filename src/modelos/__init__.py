@@ -21,6 +21,8 @@ conflictos en Git:
 """
 
 from . import otsu
+from . import adaptativa
+from . import kmeans
 
 MODELOS = {
     # Persona 1: umbralización global y watershed
@@ -29,7 +31,9 @@ MODELOS = {
     "otsu": otsu.otsu,
     "otsu_combinado": otsu.otsu_combinado,
     # Persona 3: umbralización adaptativa y K-means
-    # "adaptativa": adaptativa.adaptativa,
+    "adaptativa": adaptativa.adaptativa,
+    "adaptativa_combinada": adaptativa.adaptativa_combinada,
+    "kmeans": kmeans.kmeans,
 }
 
 ENTRENABLES = {
