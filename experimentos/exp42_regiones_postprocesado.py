@@ -17,7 +17,7 @@ Cuando las tres fases estén decididas, la evaluación final es sobre TEST:
 from src.preprocesado.variantes import PREPROCESADOS
 
 MODELO = ("crecimiento", {"color": "H", "tolerancia": 3, "iteraciones": 25, "geometrico": True, "factor": 1.0})
-PREPROCESADO = PREPROCESADOS["P2_bilateral"]
+PREPROCESADO = PREPROCESADOS["P0_sin"]
 
 POSTPROCESADOS = {
     "sin": [],
