@@ -9,7 +9,7 @@ Uso, desde la raíz del proyecto:
     uv run python scripts/ejecutar.py exp01 --filtro P2   # solo las variantes que contengan "P2"
     uv run python scripts/ejecutar.py todos               # todos los archivos
     uv run python scripts/ejecutar.py exp01 --sin-figuras # más rápido
-    uv run python scripts/ejecutar.py exp01 --conjunto train   # para ajustar parámetros
+    uv run python scripts/ejecutar.py exp01 --conjunto train   # ajustar: validación cruzada (5 folds)
     uv run python scripts/ejecutar.py --listar            # ver qué hay definido
 
 Numeración para no pisarnos: A exp01-exp19, B exp20-exp39, C exp40-exp59.
@@ -58,7 +58,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("experimentos", nargs="*", help="prefijos como exp01, o 'todos'")
     parser.add_argument("--filtro", default=None, help="ejecutar solo los experimentos cuyo nombre contenga este texto")
-    parser.add_argument("--conjunto", default="test", choices=["test", "train", "todo"])
+    parser.add_argument("--conjunto", default="test", choices=["test", "train"],
+                        help="train = validación cruzada en las 100 imágenes (5 folds); test = el del profesor")
     parser.add_argument("--sin-figuras", action="store_true", help="no guardar una figura por imagen")
     parser.add_argument("--listar", action="store_true", help="mostrar los experimentos definidos y salir")
     args = parser.parse_args()

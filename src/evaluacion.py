@@ -14,13 +14,19 @@ Un experimento es un diccionario con esta forma:
 Para cada imagen del conjunto (test por defecto):
     cargar -> preprocesar -> [reducir] -> modelo -> [ampliar] -> postprocesar -> métricas
 
-Las métricas se calculan SIEMPRE contra la máscara original de 720 x 1280.
+Conjuntos (ver src/datos.py):
+    train  las 100 imágenes iniciales, en 5 folds. Para elegir hiperparámetros:
+           además de la media por imagen se guarda el Dice de cada fold y su
+           desviación típica entre folds (validación cruzada).
+    test   el conjunto del profesor. Solo para el resultado final.
+
+Las métricas se calculan SIEMPRE contra la máscara original, a tamaño real.
 Si escala < 1, la imagen se reduce después del preprocesado, y la predicción
 se amplía al tamaño original con vecino más cercano antes de postprocesar.
 
 Se guarda en resultados/<nombre>/ (o resultados/<nombre>__train/ si se evalúa sobre train):
     metricas.csv    una fila por imagen: tiempo, TP, FP, FN, TN y todas las métricas
-    resumen.json    la configuración usada y las métricas agregadas
+    resumen.json    la configuración usada, las métricas agregadas y (en train) las de cada fold
     mascaras/       las máscaras predichas (PNG 0/255), para figuras posteriores
     figuras/        original | referencia | predicción | superposición, por imagen
 """
@@ -41,6 +47,9 @@ from src.preprocesado import describir as describir_pre
 from src.preprocesado import redimensionar
 
 DIR_RESULTADOS = datos.RAIZ / "resultados"
+# Protocolo de evaluación actual. Los resultados sin este campo son de la
+# partición antigua (70 train / 30 test) y resumen.py los oculta.
+PROTOCOLO = "cv5_train+test"
 CLAVES_VALIDAS = {"nombre", "descripcion", "preprocesado", "modelo", "postprocesado", "escala"}
 
 
@@ -138,6 +147,8 @@ def ejecutar(config, conjunto="test", guardar_figuras=True, verbose=True):
         tiempo = time.perf_counter() - inicio
 
         fila = {"imagen": n, "tiempo_s": round(tiempo, 4)}
+        if conjunto == "train":
+            fila["fold"] = datos.fold_de(n)
         fila.update(metricas.calcular(prediccion, referencia))
         filas.append(fila)
 
@@ -156,10 +167,13 @@ def ejecutar(config, conjunto="test", guardar_figuras=True, verbose=True):
     resumen = metricas.agregar(filas)
     resumen["tiempo_medio_s"] = float(np.mean([f["tiempo_s"] for f in filas]))
     resumen["tiempo_entrenamiento_s"] = round(tiempo_entrenamiento, 2)
+    if conjunto == "train":
+        resumen.update(resumen_folds(filas))
     salida = {
         "nombre": nombre,
         "descripcion": config.get("descripcion", ""),
         "conjunto": conjunto,
+        "protocolo": PROTOCOLO,
         "fecha": datetime.now().isoformat(timespec="seconds"),
         "preprocesado": describir_pre(pasos_pre),
         "modelo": modelo,
@@ -175,8 +189,29 @@ def ejecutar(config, conjunto="test", guardar_figuras=True, verbose=True):
     log(f"  -> IoU {resumen['media_iou']:.3f} ± {resumen['std_iou']:.3f}   "
         f"Dice {resumen['media_dice']:.3f} ± {resumen['std_dice']:.3f}   "
         f"({resumen['tiempo_medio_s']:.2f} s/imagen)")
+    if conjunto == "train":
+        log(f"     Dice por fold: {', '.join(f'{d:.3f}' for d in resumen['dice_por_fold'])}   "
+            f"-> {resumen['media_dice_folds']:.3f} ± {resumen['std_dice_folds']:.3f} entre folds")
     log(f"  resultados en {carpeta.relative_to(datos.RAIZ)}/")
     return salida
+
+
+def resumen_folds(filas, clave="dice"):
+    """Media de la métrica en cada fold, y media y desviación típica entre folds.
+
+    Validación cruzada de métodos sin entrenamiento: cada fold es un grupo de
+    imágenes de validación distinto; que la métrica se parezca en todos indica
+    que la configuración es estable y no depende de unas imágenes concretas.
+    """
+    por_fold = {}
+    for fila in filas:
+        por_fold.setdefault(fila["fold"], []).append(fila[clave])
+    medias = [float(np.mean(por_fold[f])) for f in sorted(por_fold)]
+    return {
+        f"{clave}_por_fold": medias,
+        f"media_{clave}_folds": float(np.mean(medias)),
+        f"std_{clave}_folds": float(np.std(medias)),
+    }
 
 
 def cargar_resumenes(directorio=DIR_RESULTADOS):
