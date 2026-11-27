@@ -1,6 +1,6 @@
 """Busca hiperparámetros con Optuna (validación cruzada, 5 folds sobre train) y evalúa la mejor sobre TEST.
 
-Cada archivo busquedas/busXX_*.py define una función espacio(trial) que
+Cada archivo busquedas_optuna/busXX_*.py define una función espacio(trial) que
 devuelve un experimento (ver src/optimizacion.py). Mismo reparto de números
 que en experimentos/: Persona 1 bus10-29, Persona 2 bus30-49, Persona 3 bus50-69.
 
@@ -16,13 +16,13 @@ Una búsqueda puede definir PUNTOS_DE_PARTIDA: combinaciones ya conocidas que
 Optuna prueba primero, para no acabar peor que ellas. Cada una puede ser un
 diccionario escrito a mano (con los mismos nombres de parámetros que espacio)
 o el nombre de otra búsqueda ("bus50_adaptativa"), y entonces se lee su mejor
-combinación de busquedas/mejores/ al lanzar.
+combinación de busquedas_optuna/mejores/ al lanzar.
 
 Salidas:
     resultados/optuna/estudios.db              todas las búsquedas (para reanudarlas)
     resultados/optuna/<busqueda>/pruebas.csv   una fila por prueba, ordenada por Dice
     resultados/optuna/<busqueda>/*.png         historia, Dice frente a cada parámetro, importancia
-    busquedas/mejores/<busqueda>.json          la mejor configuración (SÍ se sube a Git)
+    busquedas_optuna/mejores/<busqueda>.json          la mejor configuración (SÍ se sube a Git)
     resultados/<busqueda>_mejor/               evaluación sobre test, como cualquier experimento
 """
 
@@ -40,7 +40,7 @@ import optuna  # noqa: E402
 
 from src import evaluacion, optimizacion  # noqa: E402
 
-DIR_BUSQUEDAS = RAIZ / "busquedas"
+DIR_BUSQUEDAS = RAIZ / "busquedas_optuna"
 
 
 def buscar_archivo(prefijo):
@@ -68,7 +68,7 @@ def preparar_puntos(modulo):
     Cada elemento de PUNTOS_DE_PARTIDA puede ser:
       - un diccionario de parámetros escrito a mano (p. ej. lo mejor de la rejilla), o
       - el nombre de otra búsqueda (p. ej. "bus50_adaptativa"): se lee su mejor
-        combinación de busquedas/mejores/<nombre>.json en el momento de lanzar,
+        combinación de busquedas_optuna/mejores/<nombre>.json en el momento de lanzar,
         así que siempre está actualizada.
     Un punto que no encaja en el espacio (falta un parámetro o un valor no está
     permitido) se omite con un aviso, en vez de hacer fallar la búsqueda.
@@ -80,7 +80,7 @@ def preparar_puntos(modulo):
             try:
                 salida, _ = optimizacion.cargar_mejor(punto)
             except FileNotFoundError:
-                print(f"  aviso: no existe busquedas/mejores/{punto}.json; se omite ese punto de partida")
+                print(f"  aviso: no existe busquedas_optuna/mejores/{punto}.json; se omite ese punto de partida")
                 continue
             parametros = salida["parametros"]
         else:
@@ -176,7 +176,7 @@ def main():
     print(f"  modelo:        {salida['config']['modelo']}")
     print(f"  postprocesado: {salida['config']['postprocesado']}")
     print(f"\n{salida['pruebas_completas']} completas, {salida['pruebas_podadas']} podadas.")
-    print(f"Figuras y CSV en resultados/optuna/{nombre}/ ; configuración en busquedas/mejores/{nombre}.json")
+    print(f"Figuras y CSV en resultados/optuna/{nombre}/ ; configuración en busquedas_optuna/mejores/{nombre}.json")
     print(f"Cuando no vayas a cambiar nada más: uv run python scripts/optimizar.py {nombre} --evaluar-test")
 
 

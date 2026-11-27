@@ -8,7 +8,7 @@ Idea:
     rangos continuos (C entre -50 y 0, bloque entre 51 y 501...) y ajustar a la
     vez preprocesado, modelo y postprocesado, en vez de fase por fase.
 
-Cada búsqueda es un archivo busquedas/busXX_*.py con una función
+Cada búsqueda es un archivo busquedas_optuna/busXX_*.py con una función
     espacio(trial) -> {"preprocesado": [...], "modelo": (nombre, {params}),
                        "postprocesado": [...], "escala": 1.0}
 que devuelve un experimento con el mismo formato que src/evaluacion.py.
@@ -55,7 +55,7 @@ from src.preprocesado.variantes import PREPROCESADOS
 
 DIR_OPTUNA = datos.RAIZ / "resultados" / "optuna"
 CLAVES_ATRIBUTOS = ("std_dice_folds", "media_iou", "media_precision", "media_recall", "std_dice", "tiempo_medio_s")
-DIR_MEJORES = datos.RAIZ / "busquedas" / "mejores"
+DIR_MEJORES = datos.RAIZ / "busquedas_optuna" / "mejores"
 RUTA_BD = DIR_OPTUNA / "estudios.db"
 
 
@@ -222,7 +222,7 @@ def config_de_prueba(trial):
 
 def guardar_resultados(estudio):
     """Guarda pruebas.csv, mejor.json y las figuras en resultados/optuna/<nombre>/,
-    y copia la mejor configuración a busquedas/mejores/<nombre>.json (sí se sube a Git)."""
+    y copia la mejor configuración a busquedas_optuna/mejores/<nombre>.json (sí se sube a Git)."""
     nombre = estudio.study_name
     carpeta = DIR_OPTUNA / nombre
     carpeta.mkdir(parents=True, exist_ok=True)
@@ -356,7 +356,7 @@ def _figura_importancia(estudio, ruta, titulo):
 
 
 def cargar_mejor(nombre):
-    """Lee busquedas/mejores/<nombre>.json (la mejor configuración encontrada)."""
+    """Lee busquedas_optuna/mejores/<nombre>.json (la mejor configuración encontrada)."""
     ruta = DIR_MEJORES / f"{nombre}.json"
     if not ruta.exists():
         raise FileNotFoundError(f"no existe {ruta.relative_to(datos.RAIZ)}. "

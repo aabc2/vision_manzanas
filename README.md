@@ -45,7 +45,7 @@ uv run python scripts/optimizar.py --listar       # búsquedas de Optuna definid
 | `src/visualizacion.py` | Funciones de figuras comunes |
 | `src/optimizacion.py` | Búsqueda de hiperparámetros con Optuna y validación cruzada |
 | `experimentos/` | Rejilla: un archivo por experimento, solo con su configuración |
-| `busquedas/` | Optuna: un archivo por búsqueda (`espacio(trial)`); `mejores/` guarda la mejor de cada una |
+| `busquedas_optuna/` | Optuna: un archivo por búsqueda (`espacio(trial)`); `mejores/` guarda la mejor de cada una |
 | `scripts/` | Lo que se lanza desde la terminal |
 | `resultados/` | Lo que generan los scripts |
 
