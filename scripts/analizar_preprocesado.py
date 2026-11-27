@@ -38,8 +38,9 @@ sys.path.insert(0, str(RAIZ))
 
 from src.preprocesado import aplicar, canal, describir  # noqa: E402
 
-DIR_IMAGENES = RAIZ / "data" / "imagenes"
-DIR_MASCARAS = RAIZ / "data" / "mascaras"
+# Solo imágenes de train: el test del profesor no se mira para decidir nada.
+DIR_IMAGENES = RAIZ / "data" / "train" / "imagenes"
+DIR_MASCARAS = RAIZ / "data" / "train" / "mascaras"
 DIR_SALIDA = RAIZ / "resultados" / "preprocesado"
 
 CANALES = ["gris", "H", "S", "V", "a", "b", "Cr"]

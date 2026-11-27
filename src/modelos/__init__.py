@@ -20,6 +20,8 @@ conflictos en Git:
     Persona 3: adaptativa.py, kmeans.py
 """
 
+from . import adaptativa
+from . import kmeans
 from . import otsu, regiones
 
 MODELOS = {
@@ -30,7 +32,9 @@ MODELOS = {
     "otsu_combinado": otsu.otsu_combinado,
     "crecimiento": regiones.crecimiento,
     # Persona 3: umbralización adaptativa y K-means
-    # "adaptativa": adaptativa.adaptativa,
+    "adaptativa": adaptativa.adaptativa,
+    "adaptativa_combinada": adaptativa.adaptativa_combinada,
+    "kmeans": kmeans.kmeans,
 }
 
 ENTRENABLES = {
